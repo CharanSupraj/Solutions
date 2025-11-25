@@ -85,14 +85,7 @@ KERNEL_PYTHON="$KERNEL_PYTHON"
 
 echo ">>> Installing packages using: \$KERNEL_PYTHON"
 
-# Ensure pip is fresh
-echo "🔧 Upgrading pip..."
-"$KERNEL_PYTHON" -m pip install --upgrade pip --quiet || true
-
-echo "🔧 Upgrading s3fs..."
-"$KERNEL_PYTHON" -m pip install --upgrade s3fs --quiet || true
-
-PKGS=(requests pandas redshift_connector polars)
+PKGS=(pip s3fs requests pandas redshift_connector polars)
 
 for P in "\${PKGS[@]}"; do
     echo ">>> Installing/upgrading \$P"
